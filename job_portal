@@ -1,0 +1,81 @@
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import urlparse, parse_qs
+
+# --- Mock Data (Database Replacement) ---
+JOBS = [
+    {'id': 1, 'title': 'Python Back-end Developer', 'company': 'CodeCo', 'location': 'Remote'},
+    {'id': 2, 'title': 'Junior Data Analyst', 'company': 'DataStream', 'location': 'Boston, MA'},
+    {'id': 3, 'title': 'Software Tester', 'company': 'QA Labs', 'location': 'Austin, TX'}
+]
+
+# --- HTML Generation Functions ---
+
+def generate_job_list_html():
+    """Generates the HTML for the homepage/job list."""
+    job_cards = ""
+    for job in JOBS:
+        # Note: In a real app, this link would go to a detailed page
+        job_cards += f"""
+        <div style="border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 5px;">
+            <h2>{job['title']}</h2>
+            <p><strong>Company:</strong> {job['company']}</p>
+            <p><strong>Location:</strong> {job['location']}</p>
+        </div>
+        """
+    
+    return f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Pure Python Job Portal</title>
+        <style>body {{ font-family: sans-serif; margin: 20px; }}</style>
+    </head>
+    <body>
+        <h1>Available Jobs ✨</h1>
+        {job_cards}
+    </body>
+    </html>
+    """
+
+# --- Custom Request Handler ---
+
+class SimplePortalHandler(BaseHTTPRequestHandler):
+    """
+    Handles HTTP requests, serving the job list page for the root path ('/').
+    """
+    def do_GET(self):
+        """Handle incoming GET requests."""
+        
+        # Check if the request is for the root path
+        if self.path == '/':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            
+            # Write the generated HTML content to the response
+            html_content = generate_job_list_html()
+            self.wfile.write(html_content.encode('utf-8'))
+        else:
+            # Handle 404 Not Found for any other path
+            self.send_response(404)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            self.wfile.write(b"404 Not Found")
+
+# --- Server Setup ---
+
+def run_server(server_class=HTTPServer, handler_class=SimplePortalHandler, port=8000):
+    """Starts the simple HTTP server."""
+    server_address = ('', port)
+    httpd = server_class(server_address, handler_class)
+    print(f'Starting pure Python job portal on http://localhost:{port}')
+    
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print('\nStopping server...')
+        httpd.server_close()
+
+# --- Main Execution ---
+if __name__ == '__main__':
+    run_server()
