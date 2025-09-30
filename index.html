@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      text-align: center;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .weather-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .weather-box {
+      padding: 20px;
+      border-radius: 12px;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .weather-box:hover {
+      transform: scale(1.05);
+    }
+
+    /* Individual city styles */
+    .mumbai {
+      background: #f39c12; /* Orange */
+    }
+
+    .delhi {
+      background: #c0392b; /* Red */
+    }
+
+    .chennai {
+      background: #2980b9; /* Blue */
+    }
+
+    .bengaluru {
+      background: #27ae60; /* Green */
+    }
+
+    .weather-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .weather-box p {
+      margin: 5px 0;
+      font-size: 1.1em;
+    }
+
+    .icon {
+      font-size: 2em;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌤️ Indian Weather Dashboard</h1>
+  
+
+  <div class="weather-grid">
+
+    <!-- Mumbai -->
+    <div class="weather-box mumbai">
+      <h2>Mumbai</h2>
+      <p><span class="icon">🌤️</span>Temperature: 30°C</p>
+      <p><span class="icon">💧</span>Humidity: 75%</p>
+      <p><span class="icon">💨</span>Wind: 12 km/h</p>
+      <p>Condition: Humid & Sunny</p>
+    </div>
+
+    <!-- Delhi -->
+    <div class="weather-box delhi">
+      <h2>Delhi</h2>
+      <p><span class="icon">☀️</span>Temperature: 34°C</p>
+      <p><span class="icon">💧</span>Humidity: 40%</p>
+      <p><span class="icon">💨</span>Wind: 15 km/h</p>
+      <p>Condition: Hot & Dry</p>
+    </div>
+
+    <!-- Chennai -->
+    <div class="weather-box chennai">
+      <h2>Chennai</h2>
+      <p><span class="icon">🌧️</span>Temperature: 32°C</p>
+      <p><span class="icon">💧</span>Humidity: 70%</p>
+      <p><span class="icon">💨</span>Wind: 20 km/h</p>
+      <p>Condition: Cloudy</p>
+    </div>
+
+    <!-- Bengaluru -->
+    <div class="weather-box bengaluru">
+      <h2>Bengaluru</h2>
+      <p><span class="icon">🌤️</span>Temperature: 25°C</p>
+      <p><span class="icon">💧</span>Humidity: 60%</p>
+      <p><span class="icon">💨</span>Wind: 10 km/h</p>
+      <p>Condition: Pleasant</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

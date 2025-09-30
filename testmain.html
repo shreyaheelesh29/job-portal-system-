@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Weather Application (Multiple Cities)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      text-align: center;
+      padding: 40px;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 70%;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007BFF;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .weather-box {
+      margin-top: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌤️ Weather Application</h1>
+
+    <!-- City search input -->
+    <input type="text" placeholder="Enter city name">
+    <button>Search</button>
+
+    <!-- Mumbai -->
+    <div class="weather-box">
+      <h2>Mumbai, India</h2>
+      <p><strong>Temperature:</strong> 30 °C</p>
+      <p><strong>Condition:</strong> Humid & Sunny</p>
+      <p><strong>Humidity:</strong> 75%</p>
+      <p><strong>Wind Speed:</strong> 12 km/h</p>
+    </div>
+
+    <!-- Delhi -->
+    <div class="weather-box">
+      <h2>Delhi, India</h2>
+      <p><strong>Temperature:</strong> 34 °C</p>
+      <p><strong>Condition:</strong> Hot & Dry</p>
+      <p><strong>Humidity:</strong> 40%</p>
+      <p><strong>Wind Speed:</strong> 15 km/h</p>
+    </div>
+
+    <!-- Chennai -->
+    <div class="weather-box">
+      <h2>Chennai, India</h2>
+      <p><strong>Temperature:</strong> 32 °C</p>
+      <p><strong>Condition:</strong> Cloudy</p>
+      <p><strong>Humidity:</strong> 70%</p>
+      <p><strong>Wind Speed:</strong> 20 km/h</p>
+    </div>
+
+    <!-- Bengaluru -->
+    <div class="weather-box">
+      <h2>Bengaluru, India</h2>
+      <p><strong>Temperature:</strong> 25 °C</p>
+      <p><strong>Condition:</strong> Pleasant</p>
+      <p><strong>Humidity:</strong> 60%</p>
+      <p><strong>Wind Speed:</strong> 10 km/h</p>
+    </div>
+  </div>
+</body>
+</html>
